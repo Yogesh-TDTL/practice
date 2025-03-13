@@ -1,0 +1,17 @@
+name: Scheduled Workflow
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'  # Runs every 1 minutes
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run a simple command
+        run: echo "This workflow runs every 3 minutes!"
